@@ -9,7 +9,7 @@
 		///
 		/// @param jsonParam 초기화 및 모듈 전역에서 사용하는 속성값을 포함하는 Json 문자열
 		/// @return 성공시 {"result": "true", "msg": ""},
-		///               실패시 {"result": "false", "msg": "error message"}
+		///         실패시 {"result": "false", "msg": "error message"}
 		///
 		/// @note jsonParam은 다음과 같은 형식을 갖는다.
 		///	{"param": {"challenge": "b12345", "": "pkcs_sign"}}
@@ -24,12 +24,16 @@
 		/// @param reserved 윈도우 핸들 또는 nullptr
 		/// @param jsonParam 명령어와 인자값으로 구성된 Json 문자열
 		/// @return 성공시 {"result": "true", "msg": "json 형식의 결과 문자열"},
-		///               실패시 {"result": "false", "msg": "error message"}
+		///         실패시 {"result": "false", "msg": "error message"}
 		///
 		/// @todo 문자열의 형식을 정의할 것인가에 대한 고민이 필요하다.
 		///
 		/// @note jsonParam은 다음과 같은 형식을 갖는다.
-		///	{"cmd": "login", "param": {"challenge": "b12345", "msg": "123456", "type": "pkcs_sign"}}
+		///	{"cmd": "login", "param": {"challenge": "b12345", "msg": "123456", "type": "pkcs_sign", "device": "hsm"}}
+		///	{"cmd": "certIssue", "param": {"challenge": "b12345", "msg": "123456", "type": "pkcs_sign"}}
+		///	{"cmd": "certUpdate", "param": {"challenge": "b12345", "msg": "123456", "type": "pkcs_sign"}}
+		///	{"cmd": "sign", "param": {"challenge": "b12345", "msg": "123456", "type": "pkcs_sign", "device": "all"}}
+		///	{"cmd": "getHsmInfo", "param": {"challenge": "b12345", "msg": "123456", "type": "pkcs_sign"}}
 		///
 		/// @note 결과 메시지는 다음과 같은 형식을 갖는다.
 		///	{"result": "true", "msg": {"sign_value": "b12345", "cert_info": "123456", "mac_info": "b09876"}}
@@ -42,7 +46,7 @@
 		/// 모듈을 해제한다.
 		///
 		/// @return 성공시 {"result": "true", "msg": ""},
-		///               실패시 {"result": "false", "msg": "error message"}
+		///         실패시 {"result": "false", "msg": "error message"}
 		///
 		char* release ()
 
